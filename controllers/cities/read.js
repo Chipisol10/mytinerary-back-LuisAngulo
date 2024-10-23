@@ -8,7 +8,7 @@ let allCities =  async (req,res,next) => {
             query.name = {$regex: '^'+name, $options: 'i'}
         }
         
-       let all = await City.find() 
+       let all = await City.find(query) 
         return res.status (200).json({
             response: all
         })
