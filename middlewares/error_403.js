@@ -1,7 +1,7 @@
-const error_400 = (error,req,res,next) => {
+const error_403 = (error,req,res,next) => {
     console.log(error)
     if(error.name = "bad Request"){
-        return res.status(400).json({
+        return res.status(403).json({
             success:false,
             response:null,
             message: "Error"
@@ -10,4 +10,4 @@ const error_400 = (error,req,res,next) => {
     next(error)
 }
 
-export default error_400
+export default error_403
