@@ -1,6 +1,6 @@
 const error_403 = (error,req,res,next) => {
     console.log(error)
-    if(error.name = "bad Request"){
+    if(error.name = "Forbidden"){
         return res.status(403).json({
             success:false,
             response:null,
