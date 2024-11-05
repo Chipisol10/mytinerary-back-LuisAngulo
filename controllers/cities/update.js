@@ -1,11 +1,11 @@
 import City from "../../models/City.js";
 
-const update = async (req, res, next) => {
+const updateI = async (req, res, next) => {
     try {
         let city = req.body
         await City.updateOne(
             {_id: city._id},//condiciones de busqueda
-            {city: city.name} // modificaciones 
+            {name: city.name} // modificaciones 
         )
         return res.status(200).json({
             response: city
@@ -15,4 +15,4 @@ const update = async (req, res, next) => {
     }
 }
 
-export {update}
+export {updateI}

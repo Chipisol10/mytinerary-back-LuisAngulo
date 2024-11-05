@@ -4,8 +4,8 @@ const updateItinerary = async (req, res, next) => {
     try {
         let itenarary = req.body
         await Itinerary.updateOne(
-            {_id: itenarary._id},//condiciones de busqueda
-            {name: itenarary.name} // modificaciones 
+            {_id: itenarary._id},
+            {name: itenarary.name} 
         )
         return res.status(200).json({
             response:itenarary
