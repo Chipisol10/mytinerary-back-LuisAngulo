@@ -5,7 +5,7 @@ let allCities =  async (req,res,next) => {
     try {
         let {name} = req.query 
         let query = {}
-        if(name != ""){
+        if(name !=  "" && req.query.name){
             query.name = {$regex: '^'+name, $options: 'i'}
         }
         console.log(query);
