@@ -1,14 +1,17 @@
 import City from "../../models/City.js";
+import  "../../models/Itinerary.js";
 
 let allCities =  async (req,res,next) => {
     try {
         let {name} = req.query 
         let query = {}
-        if(name){
+        if(name != ""){
             query.name = {$regex: '^'+name, $options: 'i'}
         }
+        console.log(query);
         
-       let all = await City.find(query) 
+       let all = await City.find(query)
+
         return res.status (200).json({
             response: all
         })
