@@ -8,13 +8,13 @@ import passport from "passport";
 
 const router = Router()
 
-router.get ('/all',passport.authenticate('jwt',{session:false}),allItineraries)
-router.get ('/city/:city',passport.authenticate('jwt',{session:false}),getItinerariesCity)
-router.get ('/id/:id',passport.authenticate('jwt',{session:false}),itinerariesById)
+router.get ('/all',allItineraries)
+router.get ('/city/:city',getItinerariesCity)
+router.get ('/id/:id',itinerariesById)
  
-router.post('/create',passport.authenticate('jwt',{session:false}),createItineraties)
-router.put('/update',passport.authenticate('jwt',{session:false}),updateItinerary)
-router.delete('/deleteI',passport.authenticate('jwt',{session:false}),deleteI)
+router.post('/create',createItineraties)
+router.put('/update',updateItinerary)
+router.delete('/deleteI',deleteI)
 
 
 export default router

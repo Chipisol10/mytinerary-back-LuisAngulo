@@ -9,6 +9,7 @@ import passportGoogle from "../middlewares/passportGoogle.js";
 
 
 
+
 const router = Router()
 
 router.post('/signIn',accountNoExist,isValidadPassword,generateToken,signIn)
@@ -21,11 +22,11 @@ router.get(
 )
 
 router.get(
-    'signIn/google/callback',
-    passportGoogle.authenticate('google',{session:false, failureRedirect: '/login'},
+    '/signIn/google/callback',
+    passportGoogle.authenticate('google',{session:false, failureRedirect: '/login'}),
         generateToken,
         signIn
-    )
+   
 )
 
 

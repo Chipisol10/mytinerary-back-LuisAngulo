@@ -20,11 +20,11 @@ export default passport.use(
                     //si no existe creo uno nuevo
                     user = new User ({
                         name:profile.displayName,
-                        lastname:profile.displayLastName,
+                        lastname:profile.displayName,
                         email:profile.emails[0].value,
                         password:profile.id,
-                        url:profile.url[0].value,
-                        country:profile.country[0].value
+                        url:profile.photos[0].value
+                        
                         
                     })
                     await user.save()
