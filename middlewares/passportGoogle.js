@@ -10,7 +10,7 @@ export default passport.use(
             callbackURL: process.env.GOOGLE_URI_BACK 
         },
         async(accessToken,refreshToken,profile, done) =>{
-            console.log(profile);
+           // console.log(profile);
             
            
             try {
@@ -19,11 +19,12 @@ export default passport.use(
             if (!user) {
                     //si no existe creo uno nuevo
                     user = new User ({
-                        name:profile.displayName,
-                        lastname:profile.displayName,
+                        name:profile.name.giveName,
+                        lastname:profile.name.familyName,
                         email:profile.emails[0].value,
                         password:profile.id,
-                        url:profile.photos[0].value
+                        url:profile.photos[0].value,
+                        country:null
                         
                         
                     })

@@ -1,6 +1,6 @@
 import User from "../../models/User.js"
 
-export default async(req,res,next) => {
+const singIn = async(req,res,next) => {
     try {
         await User.findOneAndUpdate(
             {email:req.body.email},
@@ -22,3 +22,11 @@ export default async(req,res,next) => {
         next(error)
     }
 }
+
+const validateToken = (req,res,next) => {
+    return res.status(200).json({
+        response: req.user
+    })
+}
+
+export { singIn, validateToken}
