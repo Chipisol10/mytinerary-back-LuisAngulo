@@ -1,19 +1,22 @@
 import { Router } from "express";
-import signIn from "../controllers/auth/signIn.js";
+
 import accountNoExist from "../middlewares/accountNoExist.js";
 import isValidadPassword from "../middlewares/isValidadPassword.js";
 import generateToken from "../middlewares/generateToken.js";
 import signOut from "../controllers/auth/signOut.js";
 import passport from "../middlewares/passport.js";
 import passportGoogle from "../middlewares/passportGoogle.js";
+import signInGoogle from "../controllers/auth/signInGoogle.js";
+import { singIn, validateToken } from "../controllers/auth/signIn.js";
 
 
 
 
 const router = Router()
 
-router.post('/signIn',accountNoExist,isValidadPassword,generateToken,signIn)
-router.post('/signOut',passport.authenticate('jwt',{session:false}),signOut)
+router.post('/signIn',accountNoExist,isValidadPassword,generateToken, singIn)
+router.post('/signOut',passport.authenticate('jwt',{session:false}), signOut)
+router.get('/validateToken',passport.authenticate('jwt',{session:false}), validateToken)
 
 //Ruta para iniciar sesion con google
 router.get(
@@ -25,7 +28,7 @@ router.get(
     '/signIn/google/callback',
     passportGoogle.authenticate('google',{session:false, failureRedirect: '/login'}),
         generateToken,
-        signIn
+        signInGoogle
    
 )
 
