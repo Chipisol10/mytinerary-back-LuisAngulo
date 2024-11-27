@@ -18,7 +18,7 @@ router.post('/signIn',accountNoExist,isValidadPassword,generateToken, singIn)
 router.post('/signOut',passport.authenticate('jwt',{session:false}), signOut)
 router.get('/validateToken',passport.authenticate('jwt',{session:false}), validateToken)
 
-//Ruta para iniciar sesion con google
+
 router.get(
     '/signIn/google',
     passportGoogle.authenticate('google',{session:false, scope: ['profile','email']})

@@ -13,7 +13,11 @@ const singIn = async(req,res,next) => {
             message:"signed In",
             user:{
                 email:req.user.email,
-                country:req.user.country
+                country:req.user.country,
+                name:req.user.name,
+                url:req.user.url,
+                lastname:req.user.lastname,
+                
                 
             },
             token:req.token
