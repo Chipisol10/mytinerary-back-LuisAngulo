@@ -8,7 +8,9 @@ export default async (req,res,next) => {
                 email: account.email,
                 password: account.password,
                 url: account.url,
-                country: account.country
+                country: account.country,
+                name: account.name,
+                lastname: account.lastname
 
 }
           return  next()
